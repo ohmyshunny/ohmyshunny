@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 焉知非鱼</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on 焉知非鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 21 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>D</title>
+      <link>/tags/d/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/d/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>夏天</title>
+      <link>/tags/%E5%A4%8F%E5%A4%A9/</link>
+      <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/%E5%A4%8F%E5%A4%A9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>旧时光</title>
+      <link>/tags/%E6%97%A7%E6%97%B6%E5%85%89/</link>
+      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/%E6%97%A7%E6%97%B6%E5%85%89/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>签名</title>
+      <link>/tags/%E7%AD%BE%E5%90%8D/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/%E7%AD%BE%E5%90%8D/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

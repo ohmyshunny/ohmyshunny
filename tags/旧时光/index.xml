@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>旧时光 on 焉知非鱼</title>
+    <link>/tags/%E6%97%A7%E6%97%B6%E5%85%89/</link>
+    <description>Recent content in 旧时光 on 焉知非鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 18 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/%E6%97%A7%E6%97%B6%E5%85%89/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>默写旧时光</title>
+      <link>/note/2017/08/18/another-note/</link>
+      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/note/2017/08/18/another-note/</guid>
+      <description>从过去吹来的风, 淋了一场大雨。</description>
+    </item>
+    
+  </channel>
+</rss>

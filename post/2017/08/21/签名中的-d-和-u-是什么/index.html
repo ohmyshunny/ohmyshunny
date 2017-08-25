@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>签名中的 :D 和 :U 是什么? - 焉知非鱼</title>
+    <meta property="og:title" content="签名中的 :D 和 :U 是什么? - 焉知非鱼">
+    
+
+    
+      
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">焉知非鱼</a></h1>
+
+<p class="tagline">大雨像阳光般倾落, 边失去边拥有着</p>
+
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        
+        
+        <li><a href="/">博客</a></li>
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/categories/">分类</a></li>
+        
+        <li><a href="/tags/">标签</a></li>
+        
+        
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>签名中的 :D 和 :U 是什么?</h1>
+
+<h3>
+  2017-08-21</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>在 Rakudo 中, 类和其他类型都是对象, 并且通过它们自身类型的类型检测。</p>
+
+<p>例如, 如果你定义一个变量:</p>
+
+<pre><code class="language-perl6">my Int $x = 42;
+</code></pre>
+
+<p>那么你不仅可以给这个变量赋值整数(即, Int 类的实例), 而且可以给该变量赋值 Int 类型本身:</p>
+
+<pre><code class="language-perl6">$x = Int
+</code></pre>
+
+<p>如果你想排除类型对象, 你可以在类型后面追加 <code>:D</code> 类型微笑符, 它代表着 &ldquo;definite&rdquo;(有定义的):</p>
+
+<pre><code class="language-perl6">my Int:D $x = 42;
+$x = Int;      # dies with: 
+                     # Type check failed in assignment to $x; 
+                     # expected Int:D but got Int 
+</code></pre>
+
+<p>同样地, <code>:U</code> 代表未定义的(undefined)值, 即, 类型对象。</p>
+
+<p>要显示地允许类型对象或实例, 那么使用 <code>:_</code>。</p>
+
+<p>更多例子, 见 <a href="https://github.com/perl6/roast/blob/master/S12-attributes/smiley.t">smiley</a></p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2017/08/19/2018%E5%B9%B4/">2018年</a></span>
+  <span class="nav-next"><a href="/post/2017/08/24/%E6%AF%94%E7%99%BD%E4%BA%91%E5%B9%B8%E7%A6%8F/">比白云幸福</a> &rarr;</span>
+</nav>
+
+
+
+
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/Perl.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/Python.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">&copy; <a href="https://github.com/ohmyshunny">ohmyshunny</a> 2017</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

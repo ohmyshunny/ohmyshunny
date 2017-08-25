@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on 焉知非鱼</title>
+    <link>/</link>
+    <description>Recent content in Home on 焉知非鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 24 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>比白云幸福</title>
+      <link>/post/2017/08/24/%E6%AF%94%E7%99%BD%E4%BA%91%E5%B9%B8%E7%A6%8F/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/08/24/%E6%AF%94%E7%99%BD%E4%BA%91%E5%B9%B8%E7%A6%8F/</guid>
+      <description>天高白云远。夏天马上要结束了。白云们在夏天浪迹天涯, 秋天开始晚年的幸福云生, 冬天开始云眠。
+所以, 要比白云幸福啊。</description>
+    </item>
+    
+    <item>
+      <title>签名中的 :D 和 :U 是什么?</title>
+      <link>/post/2017/08/21/%E7%AD%BE%E5%90%8D%E4%B8%AD%E7%9A%84-d-%E5%92%8C-u-%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/08/21/%E7%AD%BE%E5%90%8D%E4%B8%AD%E7%9A%84-d-%E5%92%8C-u-%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>在 Rakudo 中, 类和其他类型都是对象, 并且通过它们自身类型的类型检测。
+例如, 如果你定义一个变量:
+my Int $x = 42;  那么你不仅可以给这个变量赋值整数(即, Int 类的实例), 而且可以给该变量赋值 Int 类型本身:
+$x = Int  如果你想排除类型对象, 你可以在类型后面追加 :D 类型微笑符, 它代表着 &amp;ldquo;definite&amp;rdquo;(有定义的):
+my Int:D $x = 42; $x = Int; # dies with: # Type check failed in assignment to $x; # expected Int:D but got Int  同样地, :U 代表未定义的(undefined)值, 即, 类型对象。
+要显示地允许类型对象或实例, 那么使用 :_。
+更多例子, 见 smiley</description>
+    </item>
+    
+    <item>
+      <title>2018年</title>
+      <link>/post/2017/08/19/2018%E5%B9%B4/</link>
+      <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/08/19/2018%E5%B9%B4/</guid>
+      <description>草在结他的种子
+风在摇他的叶子
+我们站着不说话</description>
+    </item>
+    
+    <item>
+      <title>别跟做小程序的人做朋友</title>
+      <link>/note/2017/08/18/a-quick-note/</link>
+      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/note/2017/08/18/a-quick-note/</guid>
+      <description>别跟做小程序的人做朋友, 因为他们总向你推销小程序; 别和微信昵称,QQ 昵称, 博客昵称一成不变的人做朋友, 因为他太懒; 别和不发朋友圈的人做朋友, 因为他们也许失忆了; 别和不会唱歌的人做朋友, 因为他们竟然还记得歌词; 别和酒量不如自己的人做朋友, 因为你得打车送他回家; 别和买书不读的人做朋友, 因为他们浪费; 别和写 Perl 6 的人做朋友, 因为智商太低; 别和创业的人做朋友, 因为他们没时间; 别和没时间的人做朋友, 因为时间都拿去喂狗了; 别和我做朋友, 因为我做小程序统计。
+以上都是胡说, 请不要和我做朋友。</description>
+    </item>
+    
+    <item>
+      <title>默写旧时光</title>
+      <link>/note/2017/08/18/another-note/</link>
+      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/note/2017/08/18/another-note/</guid>
+      <description>从过去吹来的风, 淋了一场大雨。</description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>/about/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description> 个人简介 河南「信阳人」。智商偏低, 不会玩三国杀, 不会玩狼人杀, 不会玩王者荣耀。
+兴趣爱好 给博客换主题, 给网站起名字。
+本站架构 本站采用 Hugo 作为后台, 主题来自 ivy, 希望你喜欢。
+ hugo server --theme=hugo-ivy  讨厌的人 请不要啰嗦。放个歌给你听。
+ </description>
+    </item>
+    
+  </channel>
+</rss>
