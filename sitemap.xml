@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/2017/08/28/%E8%80%81%E6%9D%BF%E5%92%8C%E8%80%81%E6%9D%BF%E5%A8%98%E4%B8%8D%E8%A7%81%E4%BA%86/</loc>
+    <lastmod>2017-08-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/2017/08/25/%E6%89%8B%E6%9C%BA%E4%B8%8D%E5%A5%BD%E7%8E%A9/</loc>
     <lastmod>2017-08-25T00:00:00+00:00</lastmod>
   </url>
@@ -50,7 +55,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -61,13 +66,19 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2017-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
     <lastmod>2017-08-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/%E4%B8%83%E5%A4%95/</loc>
+    <lastmod>2017-08-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -91,13 +102,19 @@
   
   <url>
     <loc>/categories/%E6%97%A7%E6%97%B6%E5%85%89/</loc>
-    <lastmod>2017-08-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/%E7%AD%BE%E5%90%8D/</loc>
     <lastmod>2017-08-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/%E9%BB%84%E7%84%96-jimmy-%E9%A5%AD/</loc>
+    <lastmod>2017-08-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
