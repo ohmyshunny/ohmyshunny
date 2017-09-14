@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on 焉知非鱼</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on 焉知非鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 12 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R 中有意思的包</title>
+      <link>/post/2017/09/12/r-%E4%B8%AD%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%8C%85/</link>
+      <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/09/12/r-%E4%B8%AD%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%8C%85/</guid>
+      <description>tidyverse gganimate</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,28 @@
     <description>Recent content in Home on 焉知非鱼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于微信</title>
+      <link>/post/2017/09/14/%E5%85%B3%E4%BA%8E%E5%BE%AE%E4%BF%A1/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/09/14/%E5%85%B3%E4%BA%8E%E5%BE%AE%E4%BF%A1/</guid>
+      <description>朋友圈</description>
+    </item>
+    
+    <item>
+      <title>R 中有意思的包</title>
+      <link>/post/2017/09/12/r-%E4%B8%AD%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%8C%85/</link>
+      <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/09/12/r-%E4%B8%AD%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%8C%85/</guid>
+      <description>tidyverse gganimate</description>
+    </item>
     
     <item>
       <title>老年人专用表情</title>
