@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>正则表达式中的尖括号 - 焉知非鱼</title>
+    <meta property="og:title" content="正则表达式中的尖括号 - 焉知非鱼">
+    
+
+    
+      
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">焉知非鱼</a></h1>
+
+<p class="tagline">大雨像阳光般倾落, 边失去边拥有着</p>
+
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        
+        
+        <li><a href="/">博客</a></li>
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/categories/">分类</a></li>
+        
+        <li><a href="/tags/">标签</a></li>
+        
+        
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>正则表达式中的尖括号</h1>
+
+<h3>
+  2017-09-15</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>在正则表达式外面, <code>&lt;&gt;</code> 表现的更像单引号。我浅薄的认知告诉我, 在正则表达式内部, <code>&lt;&gt;</code> 允许求值和代码插值:</p>
+
+<pre><code class="language-perl6"># 在正则表达式外面, &lt;&gt; 表现得像单引号:
+&gt; my $x = &lt;{&quot;one&quot;}&gt;
+{&quot;one&quot;}
+&gt; $x.WHAT
+(Str)
+
+# inside regex, &lt;&gt; evaluates and interpolates:
+&gt; my $b=&quot;one&quot;;
+one
+&gt; say &quot;zonez&quot; ~~ m/ &lt;{$b}&gt; /  # evaluates {$b} then quotes: m/ one /
+｢one｣
+&gt; say &quot;zonez&quot; ~~ m/ &lt;$b&gt; /    # interpolates and quotes without {}
+｢one｣
+</code></pre>
+
+<p>因为在正则表达式中允许有数组变量, 所以我猜测 perl6 正则引擎在数组两边含有 <code>&lt;&gt;</code> 时将数组展开成 OR 了。我还猜测在用户自定义的字符类 <code>&lt;[]&gt;</code> 中, <code>&lt;&gt;</code> 中的 <code>[]</code> 有点像匿名数组, 和下面的 <code>@a</code> 类似, 并且数组(字符类中的字符)的内容扩展为 OR&rsquo;s:</p>
+
+<pre><code class="language-perl6">my @a = $b, &quot;two&quot;;
+[one two]
+&gt; so &quot;zonez&quot; ~~ m/ @a /;
+True
+&gt; say &quot;ztwoz&quot; ~~ m/ &lt;{[$b, &quot;two&quot;]}&gt; / # {} to eval array, then &lt;&gt; quotes
+｢two｣
+&gt; say &quot;ztwoz&quot; ~~ m/ &lt;{@a}&gt; /
+｢two｣
+&gt; say &quot;ztwoz&quot; ~~ m/ &lt;@a&gt; /
+｢two｣ 
+&gt; say &quot;ztwoz&quot; ~~ m/ one || two /  # expands @a into ORs: [||] @a; 
+# [||] is a reduction operator;
+｢two｣
+</code></pre>
+
+<p>还有字符类展开:</p>
+
+<pre><code class="language-perl6">&gt; say &quot;ztwoz&quot; ~~ m/ &lt;[onetw]&gt; / # like [||] [&lt;o n e t w&gt;];
+｢t｣
+&gt; say &quot;ztwoz&quot; ~~ m/ o|n|e|t|w /
+｢t｣
+&gt; my @m = &lt; o n e t w &gt;
+[o n e t w]
+&gt; say &quot;ztwoz&quot; ~~ m/ @m /
+｢t｣
+</code></pre>
+
+<p>我还没有读 Rakudo 源代码, 并且我的理解也有限。</p>
+
+<p>所以, <code>&lt;&gt;</code> 在正则中有点儿特殊吧？我是不是应该学习下 Rakudo 源代码? 谢谢。</p>
+
+<h2 id="answer">Answer</h2>
+
+<p>在正则外面,<code>&lt;&gt;</code> 表现得像 <code>qw&lt;&gt;</code>, 那就是引号和分隔空格。</p>
+
+<pre><code class="language-perl6">say &lt;a b    c&gt;.perl; # (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+</code></pre>
+
+<p>它可以被展开为:</p>
+
+<pre><code class="language-perl6">q :w 'a b    c'
+Q :q :w 'a b    c'
+Q :single :words 'a b    c'
+</code></pre>
+
+<p>推荐阅读 <a href="https://docs.perl6.org/language/quoting">语言：引号结构</a> 这个更深入的主题。</p>
+
+<p>这个和正则表达式中的 <code>&lt;&gt;</code> 没有关系。</p>
+
+<p>在简单的 Perl 6 代码中, <code>&lt;&gt;</code> 在正则中并不是那么有用,  并且 <code>qw</code> 在正则中也不是那么有用。</p>
+
+<p>在正则中可以插入某些代码到正则表达式中; 这有点像宏, 或函数调用。</p>
+
+<pre><code class="language-perl6">/&lt;{ split ';', 'a;b;c' }&gt;/;
+/ [ &quot;a&quot; | &quot;b&quot; | &quot;c&quot; ] /;
+# 'b' ~~  m/&lt;{ split ';', 'a;b;c' }&gt;/;
+# say &quot;zzonezz&quot; ~~ m/ &lt;{ say &quot;foo&quot;; &quot;one&quot;;}&gt; /
+</code></pre>
+
+<p>(注意 <code>|</code> 会同时尝试所有的分支而 <code>||</code> 首先尝试最左侧的分支, 紧接着是下一个, 等等。即 <code>||</code> 和 Perl 5 和 PCRE 中的 <code>|</code> 作用类似。)</p>
+
+<pre><code class="language-perl6">/&lt;:Ll - [abc]&gt;/
+/ [d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z] / # plus other lowercase letters
+</code></pre>
+
+<p>注意, <code>/ @a /</code> 会把数组中的每个元素都作为一个分支:</p>
+
+<pre><code class="language-perl6">/ &lt;@a&gt; /
+/ [ &quot;one&quot; | &quot;two&quot; ] /
+</code></pre>
+
+<pre><code class="language-perl6">/ &lt;?{ 1 &gt; 0 }&gt; /
+
+# null regex always succeeds
+/ [ '' ] /
+/ &lt;?{ 1 == 0 }&gt; /
+
+# try to match a character after the end of the string
+# (can never succeed)
+/ [ $ : . ] /
+</code></pre>
+
+<p>最后那俩不是很准确, 但是是一种思路。</p>
+
+<p><code>&lt;&gt;</code> 还经常用于调用 regex &ldquo;methods&rdquo;.</p>
+
+<pre><code class="language-perl6">grammar Foo {
+  token TOP { &lt;alpha&gt; } # calls Grammar.alpha and uses it at that point
+}
+</code></pre>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2017/09/14/%E5%85%B3%E4%BA%8E%E5%BE%AE%E4%BF%A1/">关于微信</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//ohmyoung.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/Perl.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/Python.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">&copy; <a href="https://github.com/ohmyshunny">ohmyshunny</a> 2017</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
