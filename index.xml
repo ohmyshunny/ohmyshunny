@@ -27,7 +27,7 @@
       
       <guid>/post/2018/04/19/afterlooooooooooon-music/</guid>
       <description>听了一下午网易云音乐。
- ❤ Lone Ranger ❤ 晚安喵 ❤ A little love Nothing on you 东京不太热 烟花 让我留在你身边 刺猬效应 问 I Want You to Know 天将明 天使帝国 如初之光 当我唱起这首歌 问明月  </description>
+ ❤ Lone Ranger ❤ 晚安喵 ❤ A little love ❤ 没什么大不了 Nothing on you 东京不太热 烟花 让我留在你身边 刺猬效应 问 I Want You to Know 天将明 天使帝国 如初之光 当我唱起这首歌 问明月 佛系少女 少林英雄 太早 勉为其难  </description>
     </item>
     
     <item>
@@ -36,9 +36,9 @@
       <pubDate>Mon, 16 Apr 2018 22:24:51 +0800</pubDate>
       
       <guid>/post/2018/04/16/%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%A4%8F%E5%A4%A9/</guid>
-      <description>是最后一个星期。再有一周就离开了, 算起来有 534 天了呢, 如果日期没有记错的话。感觉时间好长的样子, 有点不舍。不知道是对是错, 但是还是要说再见了。亲爱的你们, 祝愿你们 Keep Young, Keep Angry。过去的一年多, 见证了公司的发展和成长, 我相信公司会越来越好! 这是一个很好的平台, 希望会有好运气!
+      <description>是最后一个星期。再有一周就离开了, 算起来有 534 天了呢, 如果日期没有记错的话。感觉时间好长的样子, 有一点点点点点点点不舍。不知道是对是错, 但是还是要说再见了。亲爱的你们, 祝愿你们 Keep Young, Keep Angry。过去的一年多, 见证了公司的发展和成长, 我相信公司会越来越好! 这是一个很好的平台, 希望会有好运气!
 夏有凉风, 愿你也有好运气。
-做人呢最重要的就是开心。
+怎么告别都苍白。
 呐, 放首歌送别一下, 另外一首凉凉送给夏天。
  </description>
     </item>
@@ -167,7 +167,7 @@ my Int:D $x = 42; $x = Int; # dies with: # Type check failed in assignment to $x
       <description> 个人简介 河南「信阳人」。智商偏低, 不会玩三国杀, 不会玩狼人杀, 不会玩王者荣耀, 不会玩荒野行动, KTV 不会唱歌。
 兴趣爱好 给博客换主题, 给网站起名字。
 本站架构 本站采用 Hugo 作为后台, 主题来自 ivy, 偶尔半夜更新, 希望你喜欢。
- hugo server --theme=hugo-ivy  讨厌的人 请不要啰嗦。放个歌给你听。
+hugo server --theme=hugo-ivy  讨厌的人 请不要啰嗦。放个歌给你听。
  </description>
     </item>
     
