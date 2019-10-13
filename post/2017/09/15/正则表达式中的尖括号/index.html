@@ -76,7 +76,7 @@
 
 <p>在正则表达式外面, <code>&lt;&gt;</code> 表现的更像单引号。我浅薄的认知告诉我, 在正则表达式内部, <code>&lt;&gt;</code> 允许求值和代码插值:</p>
 
-<pre><code class="language-perl6"># 在正则表达式外面, &lt;&gt; 表现得像单引号:
+<pre><code class="language-raku"># 在正则表达式外面, &lt;&gt; 表现得像单引号:
 &gt; my $x = &lt;{&quot;one&quot;}&gt;
 {&quot;one&quot;}
 &gt; $x.WHAT
@@ -91,9 +91,9 @@ one
 ｢one｣
 </code></pre>
 
-<p>因为在正则表达式中允许有数组变量, 所以我猜测 perl6 正则引擎在数组两边含有 <code>&lt;&gt;</code> 时将数组展开成 OR 了。我还猜测在用户自定义的字符类 <code>&lt;[]&gt;</code> 中, <code>&lt;&gt;</code> 中的 <code>[]</code> 有点像匿名数组, 和下面的 <code>@a</code> 类似, 并且数组(字符类中的字符)的内容扩展为 OR&rsquo;s:</p>
+<p>因为在正则表达式中允许有数组变量, 所以我猜测 raku 正则引擎在数组两边含有 <code>&lt;&gt;</code> 时将数组展开成 OR 了。我还猜测在用户自定义的字符类 <code>&lt;[]&gt;</code> 中, <code>&lt;&gt;</code> 中的 <code>[]</code> 有点像匿名数组, 和下面的 <code>@a</code> 类似, 并且数组(字符类中的字符)的内容扩展为 OR&rsquo;s:</p>
 
-<pre><code class="language-perl6">my @a = $b, &quot;two&quot;;
+<pre><code class="language-raku">my @a = $b, &quot;two&quot;;
 [one two]
 &gt; so &quot;zonez&quot; ~~ m/ @a /;
 True
@@ -110,7 +110,7 @@ True
 
 <p>还有字符类展开:</p>
 
-<pre><code class="language-perl6">&gt; say &quot;ztwoz&quot; ~~ m/ &lt;[onetw]&gt; / # like [||] [&lt;o n e t w&gt;];
+<pre><code class="language-raku">&gt; say &quot;ztwoz&quot; ~~ m/ &lt;[onetw]&gt; / # like [||] [&lt;o n e t w&gt;];
 ｢t｣
 &gt; say &quot;ztwoz&quot; ~~ m/ o|n|e|t|w /
 ｢t｣
@@ -128,25 +128,25 @@ True
 
 <p>在正则外面,<code>&lt;&gt;</code> 表现得像 <code>qw&lt;&gt;</code>, 那就是引号和分隔空格。</p>
 
-<pre><code class="language-perl6">say &lt;a b    c&gt;.perl; # (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+<pre><code class="language-raku">say &lt;a b    c&gt;.perl; # (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
 </code></pre>
 
 <p>它可以被展开为:</p>
 
-<pre><code class="language-perl6">q :w 'a b    c'
+<pre><code class="language-raku">q :w 'a b    c'
 Q :q :w 'a b    c'
 Q :single :words 'a b    c'
 </code></pre>
 
-<p>推荐阅读 <a href="https://docs.perl6.org/language/quoting">语言：引号结构</a> 这个更深入的主题。</p>
+<p>推荐阅读 <a href="https://docs.raku.org/language/quoting">语言：引号结构</a> 这个更深入的主题。</p>
 
 <p>这个和正则表达式中的 <code>&lt;&gt;</code> 没有关系。</p>
 
-<p>在简单的 Perl 6 代码中, <code>&lt;&gt;</code> 在正则中并不是那么有用,  并且 <code>qw</code> 在正则中也不是那么有用。</p>
+<p>在简单的 Raku 代码中, <code>&lt;&gt;</code> 在正则中并不是那么有用,  并且 <code>qw</code> 在正则中也不是那么有用。</p>
 
 <p>在正则中可以插入某些代码到正则表达式中; 这有点像宏, 或函数调用。</p>
 
-<pre><code class="language-perl6">/&lt;{ split ';', 'a;b;c' }&gt;/;
+<pre><code class="language-raku">/&lt;{ split ';', 'a;b;c' }&gt;/;
 / [ &quot;a&quot; | &quot;b&quot; | &quot;c&quot; ] /;
 # 'b' ~~  m/&lt;{ split ';', 'a;b;c' }&gt;/;
 # say &quot;zzonezz&quot; ~~ m/ &lt;{ say &quot;foo&quot;; &quot;one&quot;;}&gt; /
@@ -154,17 +154,17 @@ Q :single :words 'a b    c'
 
 <p>(注意 <code>|</code> 会同时尝试所有的分支而 <code>||</code> 首先尝试最左侧的分支, 紧接着是下一个, 等等。即 <code>||</code> 和 Perl 5 和 PCRE 中的 <code>|</code> 作用类似。)</p>
 
-<pre><code class="language-perl6">/&lt;:Ll - [abc]&gt;/
+<pre><code class="language-raku">/&lt;:Ll - [abc]&gt;/
 / [d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z] / # plus other lowercase letters
 </code></pre>
 
 <p>注意, <code>/ @a /</code> 会把数组中的每个元素都作为一个分支:</p>
 
-<pre><code class="language-perl6">/ &lt;@a&gt; /
+<pre><code class="language-raku">/ &lt;@a&gt; /
 / [ &quot;one&quot; | &quot;two&quot; ] /
 </code></pre>
 
-<pre><code class="language-perl6">/ &lt;?{ 1 &gt; 0 }&gt; /
+<pre><code class="language-raku">/ &lt;?{ 1 &gt; 0 }&gt; /
 
 # null regex always succeeds
 / [ '' ] /
@@ -179,7 +179,7 @@ Q :single :words 'a b    c'
 
 <p><code>&lt;&gt;</code> 还经常用于调用 regex &ldquo;methods&rdquo;.</p>
 
-<pre><code class="language-perl6">grammar Foo {
+<pre><code class="language-raku">grammar Foo {
   token TOP { &lt;alpha&gt; } # calls Grammar.alpha and uses it at that point
 }
 </code></pre>
