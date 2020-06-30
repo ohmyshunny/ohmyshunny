@@ -72,11 +72,8 @@
 
 
 
-
-
 <p>在正则表达式外面, <code>&lt;&gt;</code> 表现的更像单引号。我浅薄的认知告诉我, 在正则表达式内部, <code>&lt;&gt;</code> 允许求值和代码插值:</p>
-
-<pre><code class="language-raku"># 在正则表达式外面, &lt;&gt; 表现得像单引号:
+<pre><code class="language-raku" data-lang="raku"># 在正则表达式外面, &lt;&gt; 表现得像单引号:
 &gt; my $x = &lt;{&quot;one&quot;}&gt;
 {&quot;one&quot;}
 &gt; $x.WHAT
@@ -89,11 +86,8 @@ one
 ｢one｣
 &gt; say &quot;zonez&quot; ~~ m/ &lt;$b&gt; /    # interpolates and quotes without {}
 ｢one｣
-</code></pre>
-
-<p>因为在正则表达式中允许有数组变量, 所以我猜测 raku 正则引擎在数组两边含有 <code>&lt;&gt;</code> 时将数组展开成 OR 了。我还猜测在用户自定义的字符类 <code>&lt;[]&gt;</code> 中, <code>&lt;&gt;</code> 中的 <code>[]</code> 有点像匿名数组, 和下面的 <code>@a</code> 类似, 并且数组(字符类中的字符)的内容扩展为 OR&rsquo;s:</p>
-
-<pre><code class="language-raku">my @a = $b, &quot;two&quot;;
+</code></pre><p>因为在正则表达式中允许有数组变量, 所以我猜测 raku 正则引擎在数组两边含有 <code>&lt;&gt;</code> 时将数组展开成 OR 了。我还猜测在用户自定义的字符类 <code>&lt;[]&gt;</code> 中, <code>&lt;&gt;</code> 中的 <code>[]</code> 有点像匿名数组, 和下面的 <code>@a</code> 类似, 并且数组(字符类中的字符)的内容扩展为 OR&rsquo;s:</p>
+<pre><code class="language-raku" data-lang="raku">my @a = $b, &quot;two&quot;;
 [one two]
 &gt; so &quot;zonez&quot; ~~ m/ @a /;
 True
@@ -106,11 +100,8 @@ True
 &gt; say &quot;ztwoz&quot; ~~ m/ one || two /  # expands @a into ORs: [||] @a; 
 # [||] is a reduction operator;
 ｢two｣
-</code></pre>
-
-<p>还有字符类展开:</p>
-
-<pre><code class="language-raku">&gt; say &quot;ztwoz&quot; ~~ m/ &lt;[onetw]&gt; / # like [||] [&lt;o n e t w&gt;];
+</code></pre><p>还有字符类展开:</p>
+<pre><code class="language-raku" data-lang="raku">&gt; say &quot;ztwoz&quot; ~~ m/ &lt;[onetw]&gt; / # like [||] [&lt;o n e t w&gt;];
 ｢t｣
 &gt; say &quot;ztwoz&quot; ~~ m/ o|n|e|t|w /
 ｢t｣
@@ -118,53 +109,30 @@ True
 [o n e t w]
 &gt; say &quot;ztwoz&quot; ~~ m/ @m /
 ｢t｣
-</code></pre>
-
-<p>我还没有读 Rakudo 源代码, 并且我的理解也有限。</p>
-
+</code></pre><p>我还没有读 Rakudo 源代码, 并且我的理解也有限。</p>
 <p>所以, <code>&lt;&gt;</code> 在正则中有点儿特殊吧？我是不是应该学习下 Rakudo 源代码? 谢谢。</p>
-
 <h2 id="answer">Answer</h2>
-
 <p>在正则外面,<code>&lt;&gt;</code> 表现得像 <code>qw&lt;&gt;</code>, 那就是引号和分隔空格。</p>
-
-<pre><code class="language-raku">say &lt;a b    c&gt;.perl; # (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
-</code></pre>
-
-<p>它可以被展开为:</p>
-
-<pre><code class="language-raku">q :w 'a b    c'
+<pre><code class="language-raku" data-lang="raku">say &lt;a b    c&gt;.perl; # (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+</code></pre><p>它可以被展开为:</p>
+<pre><code class="language-raku" data-lang="raku">q :w 'a b    c'
 Q :q :w 'a b    c'
 Q :single :words 'a b    c'
-</code></pre>
-
-<p>推荐阅读 <a href="https://docs.raku.org/language/quoting">语言：引号结构</a> 这个更深入的主题。</p>
-
+</code></pre><p>推荐阅读 <a href="https://docs.raku.org/language/quoting">语言：引号结构</a> 这个更深入的主题。</p>
 <p>这个和正则表达式中的 <code>&lt;&gt;</code> 没有关系。</p>
-
 <p>在简单的 Raku 代码中, <code>&lt;&gt;</code> 在正则中并不是那么有用,  并且 <code>qw</code> 在正则中也不是那么有用。</p>
-
 <p>在正则中可以插入某些代码到正则表达式中; 这有点像宏, 或函数调用。</p>
-
-<pre><code class="language-raku">/&lt;{ split ';', 'a;b;c' }&gt;/;
+<pre><code class="language-raku" data-lang="raku">/&lt;{ split ';', 'a;b;c' }&gt;/;
 / [ &quot;a&quot; | &quot;b&quot; | &quot;c&quot; ] /;
 # 'b' ~~  m/&lt;{ split ';', 'a;b;c' }&gt;/;
 # say &quot;zzonezz&quot; ~~ m/ &lt;{ say &quot;foo&quot;; &quot;one&quot;;}&gt; /
-</code></pre>
-
-<p>(注意 <code>|</code> 会同时尝试所有的分支而 <code>||</code> 首先尝试最左侧的分支, 紧接着是下一个, 等等。即 <code>||</code> 和 Perl 5 和 PCRE 中的 <code>|</code> 作用类似。)</p>
-
-<pre><code class="language-raku">/&lt;:Ll - [abc]&gt;/
+</code></pre><p>(注意 <code>|</code> 会同时尝试所有的分支而 <code>||</code> 首先尝试最左侧的分支, 紧接着是下一个, 等等。即 <code>||</code> 和 Perl 5 和 PCRE 中的 <code>|</code> 作用类似。)</p>
+<pre><code class="language-raku" data-lang="raku">/&lt;:Ll - [abc]&gt;/
 / [d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z] / # plus other lowercase letters
-</code></pre>
-
-<p>注意, <code>/ @a /</code> 会把数组中的每个元素都作为一个分支:</p>
-
-<pre><code class="language-raku">/ &lt;@a&gt; /
+</code></pre><p>注意, <code>/ @a /</code> 会把数组中的每个元素都作为一个分支:</p>
+<pre><code class="language-raku" data-lang="raku">/ &lt;@a&gt; /
 / [ &quot;one&quot; | &quot;two&quot; ] /
-</code></pre>
-
-<pre><code class="language-raku">/ &lt;?{ 1 &gt; 0 }&gt; /
+</code></pre><pre><code class="language-raku" data-lang="raku">/ &lt;?{ 1 &gt; 0 }&gt; /
 
 # null regex always succeeds
 / [ '' ] /
@@ -173,17 +141,12 @@ Q :single :words 'a b    c'
 # try to match a character after the end of the string
 # (can never succeed)
 / [ $ : . ] /
-</code></pre>
-
-<p>最后那俩不是很准确, 但是是一种思路。</p>
-
+</code></pre><p>最后那俩不是很准确, 但是是一种思路。</p>
 <p><code>&lt;&gt;</code> 还经常用于调用 regex &ldquo;methods&rdquo;.</p>
-
-<pre><code class="language-raku">grammar Foo {
+<pre><code class="language-raku" data-lang="raku">grammar Foo {
   token TOP { &lt;alpha&gt; } # calls Grammar.alpha and uses it at that point
 }
 </code></pre>
-
 
   <footer>
   
@@ -236,7 +199,7 @@ Q :single :words 'a b    c'
 
   
   <hr>
-  <div class="copyright">&copy; <a href="https://github.com/ohmyshunny">ohmyshunny</a> 2017</div>
+  <div class="copyright">© <a href="https://github.com/ohmyshunny">ohmyshunny</a> 2017</div>
   
   </footer>
   </article>

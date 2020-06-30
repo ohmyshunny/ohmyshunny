@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>旧时光 on 焉知非鱼</title>
@@ -20,8 +20,7 @@
       <description>是最后一个星期。再有一周就离开了, 算起来有 534 天了呢, 如果日期没有记错的话。感觉时间好长的样子, 有一点点点点点点点不舍。不知道是对是错, 但是还是要说再见了。亲爱的你们, 祝愿你们 Keep Young, Keep Angry。过去的一年多, 见证了公司的发展和成长, 我相信公司会越来越好! 这是一个很好的平台, 希望会有好运气!
 夏有凉风, 愿你也有好运气。
 怎么告别都苍白。
-呐, 放首歌送别一下, 另外一首凉凉送给夏天。
- </description>
+呐, 放首歌送别一下, 另外一首凉凉送给夏天。</description>
     </item>
     
     <item>
@@ -31,7 +30,7 @@
       
       <guid>/post/2017/09/15/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E7%9A%84%E5%B0%96%E6%8B%AC%E5%8F%B7/</guid>
       <description>在正则表达式外面, &amp;lt;&amp;gt; 表现的更像单引号。我浅薄的认知告诉我, 在正则表达式内部, &amp;lt;&amp;gt; 允许求值和代码插值:
-# 在正则表达式外面, &amp;lt;&amp;gt; 表现得像单引号: &amp;gt; my $x = &amp;lt;{&amp;quot;one&amp;quot;}&amp;gt; {&amp;quot;one&amp;quot;} &amp;gt; $x.WHAT (Str) # inside regex, &amp;lt;&amp;gt; evaluates and interpolates: &amp;gt; my $b=&amp;quot;one&amp;quot;; one &amp;gt; say &amp;quot;zonez&amp;quot; ~~ m/ &amp;lt;{$b}&amp;gt; / # evaluates {$b} then quotes: m/ one / ｢one｣ &amp;gt; say &amp;quot;zonez&amp;quot; ~~ m/ &amp;lt;$b&amp;gt; / # interpolates and quotes without {} ｢one｣  因为在正则表达式中允许有数组变量, 所以我猜测 raku 正则引擎在数组两边含有 &amp;lt;&amp;gt; 时将数组展开成 OR 了。我还猜测在用户自定义的字符类 &amp;lt;[]&amp;gt; 中, &amp;lt;&amp;gt; 中的 [] 有点像匿名数组, 和下面的 @a 类似, 并且数组(字符类中的字符)的内容扩展为 OR&amp;rsquo;s:</description>
+# 在正则表达式外面, &amp;lt;&amp;gt; 表现得像单引号: &amp;gt; my $x = &amp;lt;{&amp;quot;one&amp;quot;}&amp;gt; {&amp;quot;one&amp;quot;} &amp;gt; $x.WHAT (Str) # inside regex, &amp;lt;&amp;gt; evaluates and interpolates: &amp;gt; my $b=&amp;quot;one&amp;quot;; one &amp;gt; say &amp;quot;zonez&amp;quot; ~~ m/ &amp;lt;{$b}&amp;gt; / # evaluates {$b} then quotes: m/ one / ｢one｣ &amp;gt; say &amp;quot;zonez&amp;quot; ~~ m/ &amp;lt;$b&amp;gt; / # interpolates and quotes without {} ｢one｣ 因为在正则表达式中允许有数组变量, 所以我猜测 raku 正则引擎在数组两边含有 &amp;lt;&amp;gt; 时将数组展开成 OR 了。我还猜测在用户自定义的字符类 &amp;lt;[]&amp;gt; 中, &amp;lt;&amp;gt; 中的 [] 有点像匿名数组, 和下面的 @a 类似, 并且数组(字符类中的字符)的内容扩展为 OR&amp;rsquo;s:</description>
     </item>
     
     <item>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>奇怪的符号 on 焉知非鱼</title>
@@ -19,9 +19,9 @@
       <guid>/post/2017/08/21/%E7%AD%BE%E5%90%8D%E4%B8%AD%E7%9A%84-d-%E5%92%8C-u-%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
       <description>在 Rakudo 中, 类和其他类型都是对象, 并且通过它们自身类型的类型检测。
 例如, 如果你定义一个变量:
-my Int $x = 42;  那么你不仅可以给这个变量赋值整数(即, Int 类的实例), 而且可以给该变量赋值 Int 类型本身:
-$x = Int  如果你想排除类型对象, 你可以在类型后面追加 :D 类型微笑符, 它代表着 &amp;ldquo;definite&amp;rdquo;(有定义的):
-my Int:D $x = 42; $x = Int; # dies with: # Type check failed in assignment to $x; # expected Int:D but got Int  同样地, :U 代表未定义的(undefined)值, 即, 类型对象。
+my Int $x = 42; 那么你不仅可以给这个变量赋值整数(即, Int 类的实例), 而且可以给该变量赋值 Int 类型本身:
+$x = Int 如果你想排除类型对象, 你可以在类型后面追加 :D 类型微笑符, 它代表着 &amp;ldquo;definite&amp;rdquo;(有定义的):
+my Int:D $x = 42; $x = Int; # dies with: # Type check failed in assignment to $x; # expected Int:D but got Int 同样地, :U 代表未定义的(undefined)值, 即, 类型对象。
 要显示地允许类型对象或实例, 那么使用 :_。
 更多例子, 见 smiley</description>
     </item>

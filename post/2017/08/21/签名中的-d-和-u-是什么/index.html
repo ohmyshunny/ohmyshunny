@@ -73,29 +73,17 @@
 
 
 <p>在 Rakudo 中, 类和其他类型都是对象, 并且通过它们自身类型的类型检测。</p>
-
 <p>例如, 如果你定义一个变量:</p>
-
-<pre><code class="language-raku">my Int $x = 42;
-</code></pre>
-
-<p>那么你不仅可以给这个变量赋值整数(即, Int 类的实例), 而且可以给该变量赋值 Int 类型本身:</p>
-
-<pre><code class="language-raku">$x = Int
-</code></pre>
-
-<p>如果你想排除类型对象, 你可以在类型后面追加 <code>:D</code> 类型微笑符, 它代表着 &ldquo;definite&rdquo;(有定义的):</p>
-
-<pre><code class="language-raku">my Int:D $x = 42;
+<pre><code class="language-raku" data-lang="raku">my Int $x = 42;
+</code></pre><p>那么你不仅可以给这个变量赋值整数(即, Int 类的实例), 而且可以给该变量赋值 Int 类型本身:</p>
+<pre><code class="language-raku" data-lang="raku">$x = Int
+</code></pre><p>如果你想排除类型对象, 你可以在类型后面追加 <code>:D</code> 类型微笑符, 它代表着 &ldquo;definite&rdquo;(有定义的):</p>
+<pre><code class="language-raku" data-lang="raku">my Int:D $x = 42;
 $x = Int;      # dies with: 
                      # Type check failed in assignment to $x; 
                      # expected Int:D but got Int 
-</code></pre>
-
-<p>同样地, <code>:U</code> 代表未定义的(undefined)值, 即, 类型对象。</p>
-
+</code></pre><p>同样地, <code>:U</code> 代表未定义的(undefined)值, 即, 类型对象。</p>
 <p>要显示地允许类型对象或实例, 那么使用 <code>:_</code>。</p>
-
 <p>更多例子, 见 <a href="https://github.com/raku/roast/blob/master/S12-attributes/smiley.t">smiley</a></p>
 
 
@@ -150,7 +138,7 @@ $x = Int;      # dies with:
 
   
   <hr>
-  <div class="copyright">&copy; <a href="https://github.com/ohmyshunny">ohmyshunny</a> 2017</div>
+  <div class="copyright">© <a href="https://github.com/ohmyshunny">ohmyshunny</a> 2017</div>
   
   </footer>
   </article>
